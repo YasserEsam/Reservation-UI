@@ -1,0 +1,30 @@
+{
+  "success": true,
+  "message": "data displayed successfully",
+  "result": {
+    "data": [
+      {
+        "id": 3,
+        "section_name": "1flour",
+        "description": null,
+        "tables": [
+          {
+            "id": 4,
+            "table_number": "01",
+            "table_image": "https://www.kylinseating.in/uploads/pf/restaurant-furniture/big-restaurant-dining-table-set.jpg/200x200",
+            "capacity": 4,
+            "reservations": [
+              {
+                "restaurant_table_id": 4,
+                "id": 4,
+                "date": "2024-09-26",
+                "start_at": "20:00:00",
+                "end_at": "23:30:00"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
