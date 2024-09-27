@@ -1,18 +1,5 @@
 This project is built using **Next.js 14** and **Material UI**. 
 
-## Live Demo
-
-[Live Demo on Vercel](https://your-vercel-link.vercel.app)
-
-
-### Desktop View
-
-![Desktop View](./screenshots/desktop.png)
-
-### Mobile View
-
-![Mobile View](./screenshots/mobile.png)
-
 ## Installation
 
 To run this project locally, follow these steps:
