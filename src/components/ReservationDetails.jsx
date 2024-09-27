@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import Slider from "@mui/material/Slider";
 import Box from "@mui/material/Box";
 import dayjs from "dayjs";
@@ -26,14 +26,25 @@ const ReservationDetails = () => {
   const [seats, setSeats] = useState(6);
   const [value, setValue] = useState(dayjs("2022-04-17"));
   const [selectedTime, setSelectedTime] = useState(null);
+  const [isClient, setIsClient] = useState(false);
+
+
+  useEffect(() => {
+    setIsClient(true); 
+  }, []);
 
   const handleSeatsChange = (event, newValue) => {
     setSeats(newValue);
   };
 
   const handleTimeSlotClick = (time) => {
-    setSelectedTime(time === selectedTime ? null : time); 
+    setSelectedTime(time === selectedTime ? null : time);
   };
+
+
+  if (!isClient) {
+    return null; 
+  }
 
   return (
     <section className="h-[calc(100vh-140px)] overflow-hidden relative">
@@ -92,12 +103,31 @@ const ReservationDetails = () => {
                   borderRadius: "8px",
                   backgroundColor: "#FAFAFA",
                 }}
+                slotProps={{
+                  day: {
+                    sx: (day) => ({
+                      "&.Mui-selected": {
+                        backgroundColor: "#227B8212",  
+                        color: "#227B82",              
+                        "&:hover": {
+                          backgroundColor: "#227B8212", 
+                        },
+                      },
+                      "&.Mui-selected:focus": {
+                        backgroundColor: "#227B8212", 
+                        outline: "none",              
+                      },
+                      "&:focus": {
+                        outline: "none",              
+                      },
+                    }),
+                  },
+                }}
               />
             </Box>
           </LocalizationProvider>
         </div>
 
-        {/* Time Slot Available */}
         <div className="bg-[#FAFAFA] p-4 rounded-2xl mt-4 mb-24">
           <h3 className="font-semibold text-[#848484] mb-3">
             Select a Time Slot
@@ -127,16 +157,13 @@ const ReservationDetails = () => {
         Confirm
       </button>
 
-
-      {/* Hide scrollbar for Chrome, Safari and Opera , Do not remove */}
+      {/* Hide scrollbar for Chrome, Safari and Opera */}
       <style jsx>{`
-        /* Hide scrollbar for Chrome, Safari and Opera */
         .scrollbar-hidden {
           scrollbar-width: none; /* Firefox */
           -ms-overflow-style: none; /* IE and Edge */
         }
 
-        /* Hide scrollbar for Chrome, Safari and Opera */
         .scrollbar-hidden::-webkit-scrollbar {
           display: none; /* Chrome, Safari and Opera */
         }
