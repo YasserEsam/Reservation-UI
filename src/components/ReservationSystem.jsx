@@ -11,7 +11,7 @@ const sectionsData = [
 
 const ReservationSystem = () => {
   return (
-    <main className="container mx-auto p-4 grid grid-cols-12 gap-4">
+    <main className="container mx-auto p-4 grid grid-cols-12 gap-8">
       <section className="col-span-12 lg:col-span-8 bg-[#FAFAFA] p-4 rounded-2xl flex flex-col items-center">
         <SectionTabs sections={sectionsData} />
         <TableMap />
